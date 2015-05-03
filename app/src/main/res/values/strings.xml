@@ -6,9 +6,12 @@
     <string name="title_activity_topic_page">TopicPageActivity</string>
     <string name="title_activity_question">Question</string>
     <string name="title_activity_answer">AnswerActivity</string>
+    <string name="mathd">Learn how to manipulate numbers and be amazing at parties with this topic!</string>
+    <string name="physicsd">Learn how to manipulate physics and be amazing at parties with this topic!</string>
+    <string name="marveld">Learn how to manipulate marvel stuff and be amazing at parties with this topic!</string>
 
     <string-array name="mathqarray">
-        <item>Which one is the number one?</item>
+        <item>Which topic is this?</item>
         <item>Which one is the number two?</item>
         <item>Which one is the number three?</item>
         <item>Which one is the number four?</item>
@@ -18,7 +21,7 @@
     </string-array>
 
     <string-array name="mathaarray">
-        <item>1 1 2 3 4</item>
+        <item>1 Math Science Physics Marvel</item>
         <item>3 4 3 2 1</item>
         <item>2 2 3 4 1</item>
         <item>1 4 2 3 1</item>
@@ -28,7 +31,7 @@
     </string-array>
 
     <string-array name="physicsqarray">
-        <item>Which one is the number one?</item>
+        <item>Which topic is this?</item>
         <item>Which one is the number two?</item>
         <item>Which one is the number three?</item>
         <item>Which one is the number four?</item>
@@ -37,7 +40,7 @@
     </string-array>
 
     <string-array name="physicsaarray">
-        <item>1 1 2 3 4</item>
+        <item>3 Math Science Physics Marvel</item>
         <item>3 4 3 2 1</item>
         <item>2 2 3 4 1</item>
         <item>1 4 2 3 1</item>
@@ -46,14 +49,14 @@
     </string-array>
 
     <string-array name="marvelqarray">
-        <item>Which one is the number one?</item>
+        <item>Which topic is this?</item>
         <item>Which one is the number two?</item>
         <item>Which one is the number three?</item>
         <item>Which one is the number four?</item>
     </string-array>
 
     <string-array name="marvelaarray">
-        <item>1 1 2 3 4</item>
+        <item>4 Math Science Physics Marvel</item>
         <item>3 4 3 2 1</item>
         <item>2 2 3 4 1</item>
         <item>1 4 2 3 1</item>
