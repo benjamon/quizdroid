@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Math"
+        android:id="@+id/topictitle"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10pt"
+        android:layout_marginBottom="10pt" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Math is a terrible thing invented by educators to see whether or not a child is willing to bend a knee to the man and take away their future through test scores and low self esteem if they are not"
+        android:id="@+id/descriptiontext"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:layout_marginBottom="10pt"
+        android:textSize="9pt" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Begin"
+            android:id="@+id/nextbut"
+            android:layout_weight="50"
+            android:textSize="11pt"
+            android:layout_marginLeft="64px"
+            android:layout_marginRight="64px"
+            android:layout_marginTop="16px" />
+    </LinearLayout>
+</LinearLayout>

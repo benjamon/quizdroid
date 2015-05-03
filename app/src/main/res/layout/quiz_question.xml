@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/relay">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="2 + 3 = x / 2. what is x?"
+        android:id="@+id/thequestion"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="96px"
+        android:layout_marginBottom="32px"
+        android:layout_marginLeft="32px"
+        android:layout_marginRight="32px" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgRebeccaBlack"
+        android:layout_below="@+id/thequestion"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="32px"
+        android:layout_marginLeft="32px">
+
+        <RadioButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:id="@+id/q1"
+            android:checked="false"
+            android:layout_marginTop="32px" />
+
+        <RadioButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:id="@+id/q2"
+            android:checked="false"
+            android:layout_marginTop="32px" />
+
+        <RadioButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="2.5"
+            android:id="@+id/q3"
+            android:checked="false"
+            android:layout_marginTop="32px" />
+
+        <RadioButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="40"
+            android:id="@+id/q4"
+            android:checked="false"
+            android:layout_marginTop="32px" />
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/submitbut"
+        android:textSize="12pt"
+        android:layout_marginBottom="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
