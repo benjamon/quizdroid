@@ -32,6 +32,14 @@
             android:name=".finishedActivity"
             android:label="@string/title_activity_finished" >
         </activity>
+        <activity
+            android:name=".SingleQuizActivity"
+            android:label="@string/title_activity_single_quiz" >
+        </activity>
+        <activity
+            android:name=".MainActivity2Activity"
+            android:label="@string/title_activity_main_activity2" >
+        </activity>
     </application>
 
 </manifest>

@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         String item = adapter.getItemAtPosition(position).toString();
-        Intent myIntent = new Intent(MainActivity.this, TopicPageActivity.class);
+        Intent myIntent = new Intent(MainActivity.this, SingleQuizActivity.class);
         myIntent.putExtra("topic", item); //Optional parameters
         MainActivity.this.startActivity(myIntent);
     }

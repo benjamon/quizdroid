@@ -34,7 +34,7 @@ public class QuestionActivity extends ActionBarActivity {
         setContentView(R.layout.quiz_question);
 
         final RadioGroup rg = (RadioGroup)findViewById(R.id.rgRebeccaBlack);
-        TextView temxt = (TextView)findViewById(R.id.thequestion);
+        TextView temxt = (TextView)findViewById(R.id.questiontext);
 
         final RadioButton r1 = (RadioButton)findViewById(R.id.q1);
         final RadioButton r2 = (RadioButton)findViewById(R.id.q2);
