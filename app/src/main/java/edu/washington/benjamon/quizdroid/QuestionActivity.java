@@ -16,22 +16,23 @@ import java.util.Scanner;
 
 
 public class QuestionActivity extends ActionBarActivity {
-
+    QuizApp qApp;
     int q;
     String t;
-    String sa[];
-    String sq[];
     String choseAnswer[];
     int checkrd = 0;
     int correct;
     int thiscorrect;
     String thuscorrect;
     String guess = "na";
+    Topic tapic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_question);
+
+        qApp = (QuizApp) getApplication();
 
         final RadioGroup rg = (RadioGroup)findViewById(R.id.rgRebeccaBlack);
         TextView temxt = (TextView)findViewById(R.id.questiontext);
@@ -48,24 +49,20 @@ public class QuestionActivity extends ActionBarActivity {
         t = implorement.getStringExtra("topic");
         correct = implorement.getIntExtra("correct",0);
 
-        if (t.equals("Math")) {
-            sq = getResources().getStringArray(R.array.mathqarray);
-            sa = getResources().getStringArray(R.array.mathaarray);
-        } else if (t.equals("Physics")) {
-            sq = getResources().getStringArray(R.array.physicsqarray);
-            sa = getResources().getStringArray(R.array.physicsaarray);
+        if (t.equals("Science!")) {
+            tapic = qApp.getTopic(0);
         } else if (t.equals("Marvel Super Heroes")) {
-            sq = getResources().getStringArray(R.array.marvelqarray);
-            sa = getResources().getStringArray(R.array.marvelaarray);
+            tapic = qApp.getTopic(1);
+        } else if (t.equals("Mathematics")) {
+            tapic = qApp.getTopic(2);
         }
 
-        Scanner ascan = new Scanner(sa[q-1]);
-        temxt.setText(sq[q-1]);
-        thiscorrect = ascan.nextInt();
-        r1.setText(ascan.next());
-        r2.setText(ascan.next());
-        r3.setText(ascan.next());
-        r4.setText(ascan.next());
+        temxt.setText((CharSequence) tapic.quiz.get(q).quest);
+        thiscorrect = tapic.quiz.get(q).rightAnswer;
+        r1.setText((CharSequence) tapic.quiz.get(q).answers.get(0));
+        r2.setText((CharSequence) tapic.quiz.get(q).answers.get(1));
+        r3.setText((CharSequence) tapic.quiz.get(q).answers.get(2));
+        r4.setText((CharSequence) tapic.quiz.get(q).answers.get(3));
 
         switch(thiscorrect) {
             case 1:
@@ -124,7 +121,7 @@ public class QuestionActivity extends ActionBarActivity {
                         intorent.putExtra("currentquestion", q);
                         intorent.putExtra("useranswer", guess);
                         intorent.putExtra("correctanswer", thuscorrect);
-                        intorent.putExtra("question", sq[q-1]);
+                        intorent.putExtra("question", tapic.quiz.get(q).quest);
                         QuestionActivity.this.startActivity(intorent);
                     }
                 }

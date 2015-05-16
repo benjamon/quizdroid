@@ -89,6 +89,8 @@ public class SingleQuizActivity extends ActionBarActivity {
 
     public class QuestionPage extends Fragment {
 
+        QuizApp qApp;
+        Topic tapic;
         TextView axt;
         Button submitButton;
         String sa[];
@@ -104,6 +106,8 @@ public class SingleQuizActivity extends ActionBarActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.quiz_question, container, false);
 
+            qApp = (QuizApp) getApplication();
+
             axt = (TextView)rootView.findViewById(R.id.questiontext);
             submitButton = (Button)rootView.findViewById(R.id.submitbut);
 
@@ -116,27 +120,28 @@ public class SingleQuizActivity extends ActionBarActivity {
             final RadioButton r3 = (RadioButton)rootView.findViewById(R.id.q3);
             final RadioButton r4 = (RadioButton)rootView.findViewById(R.id.q4);
 
-            if (theTopic.equals("Math")) {
+            if (theTopic.equals("Science!")) {
                 sq = getResources().getStringArray(R.array.mathqarray);
                 sa = getResources().getStringArray(R.array.mathaarray);
-            } else if (theTopic.equals("Physics")) {
+                tapic = qApp.getTopic(0);
+            } else if (theTopic.equals("Marvel Super Heroes")) {
                 sq = getResources().getStringArray(R.array.physicsqarray);
                 sa = getResources().getStringArray(R.array.physicsaarray);
-            } else if (theTopic.equals("Marvel Super Heroes")) {
+                tapic = qApp.getTopic(1);
+            } else if (theTopic.equals("Physics")) {
                 sq = getResources().getStringArray(R.array.marvelqarray);
                 sa = getResources().getStringArray(R.array.marvelaarray);
+                tapic = qApp.getTopic(2);
             }
 
-            qArrayLength = sq.length;
+            qArrayLength = tapic.quiz.size()-1;
 
-            Scanner ascan = new Scanner(sa[currentQNumber-1]);
-            lastQuestion = sq[currentQNumber - 1];
-            axt.setText(sq[currentQNumber - 1]);
-            thisCorrect = ascan.nextInt();
-            r1.setText(ascan.next());
-            r2.setText(ascan.next());
-            r3.setText(ascan.next());
-            r4.setText(ascan.next());
+            axt.setText((CharSequence) tapic.quiz.get(currentQNumber - 1).quest);
+            thisCorrect = tapic.quiz.get(currentQNumber - 1).rightAnswer;
+            r1.setText((CharSequence) tapic.quiz.get(currentQNumber - 1).answers.get(0));
+            r2.setText((CharSequence) tapic.quiz.get(currentQNumber - 1).answers.get(1));
+            r3.setText((CharSequence) tapic.quiz.get(currentQNumber - 1).answers.get(2));
+            r4.setText((CharSequence) tapic.quiz.get(currentQNumber - 1).answers.get(3));
 
             switch(thisCorrect) {
                 case 1:
@@ -200,6 +205,8 @@ public class SingleQuizActivity extends ActionBarActivity {
 
     public class TopicPage extends Fragment {
 
+        Topic tapic;
+        QuizApp qApp;
         Button startQuizButton;
 
         public TopicPage() {
@@ -210,6 +217,8 @@ public class SingleQuizActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.topic_page, container, false);
+
+            qApp = (QuizApp) getApplication();
 
             TextView descriptionBox = (TextView)rootView.findViewById(R.id.descriptiontext);
             TextView titleBox = (TextView)rootView.findViewById(R.id.topictitle);
@@ -224,13 +233,14 @@ public class SingleQuizActivity extends ActionBarActivity {
 
             titleBox.setText(theTopic);
 
-            if (theTopic.equals("Math")) {
-                descriptionBox.setText(R.string.mathd);
-            } else if (theTopic.equals("Physics")) {
-                descriptionBox.setText(R.string.physicsd);
+            if (theTopic.equals("Science!")) {
+                tapic = qApp.getTopic(0);
             } else if (theTopic.equals("Marvel Super Heroes")) {
-                descriptionBox.setText(R.string.marveld);
+                tapic = qApp.getTopic(1);
+            } else if (theTopic.equals("Mathematics")) {
+                tapic = qApp.getTopic(2);
             }
+            descriptionBox.setText(tapic.tdesc);
             return rootView;
         }
     }
@@ -238,6 +248,7 @@ public class SingleQuizActivity extends ActionBarActivity {
     public class AnswerPage extends Fragment {
 
         Button startQuizButton;
+        QuizApp qApp;
 
         public AnswerPage() {
 
@@ -247,6 +258,9 @@ public class SingleQuizActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.activity_answer, container, false);
+
+            qApp = (QuizApp) getApplication();
+
             TextView lastQ = (TextView)rootView.findViewById(R.id.theQuestion);
             TextView userA = (TextView)rootView.findViewById(R.id.yourAnswer);
             TextView corA = (TextView)rootView.findViewById(R.id.correctAnswer);
@@ -257,7 +271,7 @@ public class SingleQuizActivity extends ActionBarActivity {
             corA.setText(actualAnswer);
             toteC.setText(currentCorrectNumber + " out of " + currentQNumber + " correct");
 
-            if (currentQNumber + 1 == qArrayLength) {
+            if (currentQNumber + 1 >= qArrayLength) {
                 butN.setText("FINISH QUIZ");
             }
 

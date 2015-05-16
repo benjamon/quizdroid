@@ -12,15 +12,18 @@ import android.widget.TextView;
 
 public class AnswerActivity extends ActionBarActivity {
 
+    QuizApp qApp;
+    Topic tapic;
     int numcorrect;
     int curnum;
     String topit;
-    String sq[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
+
+        qApp = (QuizApp) getApplication();
 
         TextView correct = (TextView)findViewById(R.id.correctAnswer);
         TextView guess = (TextView)findViewById(R.id.yourAnswer);
@@ -38,15 +41,15 @@ public class AnswerActivity extends ActionBarActivity {
         curnum = mop.getIntExtra("currentquestion", 0);
         topit = mop.getStringExtra("topic");
 
-        if (topit.equals("Math")) {
-            sq = getResources().getStringArray(R.array.mathqarray);
-        } else if (topit.equals("Physics")) {
-            sq = getResources().getStringArray(R.array.physicsqarray);
+        if (topit.equals("Science!")) {
+            tapic = qApp.getTopic(0);
         } else if (topit.equals("Marvel Super Heroes")) {
-            sq = getResources().getStringArray(R.array.marvelqarray);
+            tapic = qApp.getTopic(1);
+        } else if (topit.equals("Mathematics")) {
+            tapic = qApp.getTopic(2);
         }
 
-        if (curnum + 1 == sq.length) {
+        if (curnum + 1 == tapic.quiz.get(curnum).answers.size()) {
             nextbut.setText("FINISH QUIZ");
         }
 

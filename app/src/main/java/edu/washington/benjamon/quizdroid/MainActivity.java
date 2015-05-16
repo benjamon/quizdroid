@@ -16,20 +16,19 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+    QuizApp qApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView Lview = (ListView)findViewById(R.id.bigList);
-        String[] topix = new String[] { "Math", "Physics", "Marvel Super Heroes" };
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i=0; i < topix.length; i++) {
-            list.add(topix[i]);
-        }
+        qApp = (QuizApp) getApplication();
 
-        final ArrayAdapter<String> fapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, topix);
+        ListView Lview = (ListView)findViewById(R.id.bigList);
+        final ArrayList<String> list = (ArrayList<String>) qApp.getTopicTitles();
+
+        final ArrayAdapter<String> fapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 
         Lview.setAdapter(fapter);
 
