@@ -278,7 +278,7 @@ public class SingleQuizActivity extends ActionBarActivity {
             butN.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (currentQNumber + 1 == qArrayLength) {
+                    if (currentQNumber + 1 >= qArrayLength) {
                         backToTopics();
                     } else {
                         userGuess = "na";
