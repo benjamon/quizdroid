@@ -271,14 +271,14 @@ public class SingleQuizActivity extends ActionBarActivity {
             corA.setText(actualAnswer);
             toteC.setText(currentCorrectNumber + " out of " + currentQNumber + " correct");
 
-            if (currentQNumber + 1 >= qArrayLength) {
+            if (currentQNumber - 1 >= qArrayLength) {
                 butN.setText("FINISH QUIZ");
             }
 
             butN.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (currentQNumber + 1 >= qArrayLength) {
+                    if (currentQNumber - 1 >= qArrayLength) {
                         backToTopics();
                     } else {
                         userGuess = "na";
