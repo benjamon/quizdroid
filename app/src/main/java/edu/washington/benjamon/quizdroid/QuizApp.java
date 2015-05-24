@@ -94,6 +94,7 @@ public class QuizApp extends Application implements TopicRepository {
             e.printStackTrace();
         }
 
+        DownloadService.startOrStopAlarm(this, true);
     }
 
     public Topic getTopic(int tNumber) {

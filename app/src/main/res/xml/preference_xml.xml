@@ -10,6 +10,10 @@
             android:title="Frequency"
             android:summary="Set frequency URL is accessed in minutes"
             android:key="prefFreq"/>
+        <CheckBoxPreference android:title="Application Updates"
+            android:defaultValue="false"
+            android:summary="Airplane mode off?"
+            android:key="prefAPMode" />
     </PreferenceCategory>
 
 </PreferenceScreen>
